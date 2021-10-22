@@ -1,9 +1,13 @@
 import SwiftUI
 
-struct BadgeBackground: View {
-    var body: some View {
-        GeometryReader { geometry in
-            Path { path in
+struct BadgeBackground: View
+{
+    var body: some View
+    {
+        GeometryReader
+        { geometry in
+            Path
+            { path in
                 var width: CGFloat = min(geometry.size.width, geometry.size.height)
                 let height = width
                 let xScale: CGFloat = 0.832
@@ -16,23 +20,19 @@ struct BadgeBackground: View {
                     )
                 )
                 
-                HexagonParameters.segments.forEach { segment in
+                HexagonParameters.segments.forEach
+                { segment in
                     path.addLine(
-                        to: CGPoint(
-                            x: width * segment.line.x + xOffset,
-                            y: height * segment.line.y
+                        to: CGPoint( x: width * segment.line.x + xOffset,
+                                     y: height * segment.line.y
                         )
                     )
                     
                     path.addQuadCurve(
-                        to: CGPoint(
-                            x: width * segment.curve.x + xOffset,
-                            y: height * segment.curve.y
-                        ),
-                        control: CGPoint(
-                            x: width * segment.control.x + xOffset,
-                            y: height * segment.control.y
-                        )
+                        to: CGPoint( x: width * segment.curve.x + xOffset,
+                                     y: height * segment.curve.y ),
+                        control: CGPoint( x: width * segment.control.x + xOffset,
+                                          y: height * segment.control.y )
                     )
                 }
             }
