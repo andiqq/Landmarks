@@ -20,7 +20,7 @@ struct LandmarkRow: View
                 .frame(width: 50, height: 50)
                 .cornerRadius(5)
 
-            VStack {
+            VStack(alignment: .leading) {
                 Text(landmark.name)
                     .bold()
                 #if !os(watchOS)
